@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <style>
+    .itemwait{
+      position:absolute;
+      top : 0;
+      bottom:0;
+      left:0;
+      right:0;
+      margin: 0 auto; 
+    }
+    .progress{
+      stroke-dasharray: 251;
+      stroke-dashoffset: 0;
+    }
+  </style>
+</head>
+<body>
+  <svg width="200" height="200" version="1.1" class='itemwait'>
+    <circle class='progress' cx="100" cy="50" r="40" stroke="pink" stroke-width="5" fill="transparent" />
+    <text class='text' x="100" y="50" fill='pink' text-anchor='middle' alignment-baseline='middle'>开始加载</text>
+  </svg>
+</body>
+<script async type='text/javascript'>
+  const loadingArr=[1,2,10,20,40,70,90,100]
+  let index=0
+  var timer=setInterval(()=>{
+    let total=document.querySelector('.progress').getTotalLength();
+    let progress=document.querySelector('.progress')
+    console.log(typeof total)
+    progress.style.strokeDashoffset=(total)*(1-loadingArr[index]/100)
+    if(index<=loadingArr.length){
+      document.querySelector('.text').textContent=`${loadingArr[index]}%`   
+  }
+    index++
+    if(index===loadingArr.length){
+      clearInterval(timer)
+      document.querySelector('.text').textContent='加载完成'
+    }
+  },500)
+</script>
+
+</html>
