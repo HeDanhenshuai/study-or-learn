@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+            body {
+                  margin: 0;
+                  font-size: 14px;
+            }
+      </style>
+</head>
+
+<body>
+      <div id="jsContainer">
+            <ul class="js-test" id="jsParent">
+                  <li data-index="0">1<h1>span</h1></li>
+                  <li data-index="1">2</li>
+            </ul>
+            <span style="font-weight: bold;">3</span>
+            4
+      </div>
+      <script src='./dom2json.js'>
+
+            let a1 = document.querySelector('div ul li').firstChild.nodeType
+            let a2 = document.querySelectorAll('div ul')[0].nodeType
+            console.log(a1)
+            console.log(a2)
+
+      </script>
+</body>
+
+</html>

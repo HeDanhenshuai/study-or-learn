@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+</head>
+
+<body>
+      <h1>你喜欢什么水果？</h1>
+      <ul id="ul1">
+            <li class="apple" title="apple">苹果</li>
+            <li id="banana" title="banana">香蕉</li>
+            <li>梨</li>
+            <li id='grape' title="grape">紫葡萄</li>
+            <li class="apple" title="Dragon">火龙果</li>
+            <li id='watermelon' title="watermelon">西瓜</li>
+            <li class="apple" title="Mango">芒果</li>
+            <li title="cantaloupe">哈密瓜</li>
+            <li>贵妃荔枝</li>
+            <li>龙眼</li></ul>
+      <script>
+function namespace(oNamespace, sPackage) {
+      var arr = sPackage.split(".");
+      var res = oNamespace;
+      for (var i = 0, len = arr.length; i < len; i++) {
+            if (arr[i] in oNamespace) {
+                  if (typeof oNamespace[arr[i]] !== "object") {
+                        oNamespace[arr[i]] = {};
+                  }
+            } else {
+                  oNamespace[arr[i]] = {};
+            }
+            oNamespace = oNamespace[arr[i]];
+      }
+      return res;
+}
+// console.log(namespace({a:{}},'a'))
+// console.log(namespace({a:{}},'a.b'))
+// console.log(namespace({},'a.b.c'))
+// console.log(namespace({a: {test: 1, b: 2}},'c'))
+// console.log(namespace({a: {test: 1, b: 2}}, 'a.b.c.d'))
+console.log(namespace({a: {test: 1, b: 2}}, 'a.b.2.d'))
+// console.log(namespace({ a: { test: 1, b: 2 } }, 'b.c.d.e.f.g'))
+// console.log(namespace({ a: { test: 1} }, 'a.b.c.d.e.f.g'))
+      </script>
+</body>
+
+</html>

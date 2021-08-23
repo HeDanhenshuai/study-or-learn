@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+</head>
+
+<body>
+      <h1>你喜欢什么水果？</h1>
+      <ul id="ul1">
+            <li class="apple" title="apple">苹果</li>
+            <li id="banana" title="banana">香蕉</li>
+            <li>梨</li>
+            <li id='grape' title="grape">紫葡萄</li>
+            <li class="apple" title="Dragon">火龙果</li>
+            <li id='watermelon' title="watermelon">西瓜</li>
+            <li class="apple" title="Mango">芒果</li>
+            <li title="cantaloupe">哈密瓜</li>
+            <li>贵妃荔枝</li>
+            <li>龙眼</li></ul>
+      <script>
+            var oDiv1 = document.getElementById('ul1')  //id='ul1'的节点
+            console.log(typeof oDiv1);//object
+            var aLi = document.getElementsByTagName('li');  //li标签
+            console.log(aLi.length);
+            console.log(document.firstChild.nodeName); //已知节点的第一个节点名称
+            console.log(oDiv1.lastChild.nodeName); //已知节点的最后一个节点名称
+            console.log(document.body.childNodes) //获取body的所有子节点
+            for(var i=0;i<document.body.childNodes.length;i++){
+                  console.log(document.body.childNodes[i].nodeName)
+                  console.log('-----------------------')
+            }
+            console.log(document.childNodes) //获取document的所有子节点
+            for(var i=0;i<document.childNodes.length;i++){
+                  console.log(document.childNodes[i].nodeName)
+                  console.log('-----------------------')
+            }
+            console.log(document.getElementById('banana').previousSibling)//返回同一层级中指点节点的前一个节点,没有返回null
+            console.log(document.getElementById('banana').nextSibling)//返回同一层级中指点节点的后一个节点,没有返回null
+            console.log(document.getElementById('banana').parentNode.nodeName)//返回指定节点的父节点，被返回的节点以 Node 对象的形式返回，如果指定节点没有父节点，则返回 null。
+
+            var bananaPreviousSibling=document.getElementById('ul1').getElementsByTagName('li')
+            console.log(bananaPreviousSibling[0].getAttribute('title'))//返回同一层级中指点节点的前一个节点,没有返回null(该方法只能通过元素节点来调用)
+            console.log({}===false)
+            console.log(''==false)
+            var grape=document.getElementById('grape')
+            var watermelon=document.getElementById('watermelon')
+            //元素中的空白被视作文本，而文本被视作文本节点，所以在ul关闭标签前如果有空格，结果会是：nodeName=#text
+
+            console.log(grape.contains(watermelon))
+      </script>
+</body>
+
+</html>
